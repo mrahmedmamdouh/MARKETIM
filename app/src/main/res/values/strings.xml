@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">MARKETİM</string>
-
+    <string name="userName">Kullanıcı Adı</string>
+    <string name="password">Şifre</string>
+    <string name="Keep_me_signed">Beni Hatırla</string>
+    <string name="SignIn">Gırıs</string>
+    <string name="My_orders">Siparişlerim</string>
+    <string name="Log_out">Çıkış Yap</string>
+    <string name="want_Logout_str">Oturumu Kapatmak İster misiniz?</string>
+    <string name="logingout_str">Çıkış Yapmak</string>
+    <string name="yes_str">EVET</string>
+    <string name="no_str">HAYIR</string>
 </resources>

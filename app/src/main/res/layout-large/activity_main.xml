@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_view"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:duration="2000"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/shimmer_holder" />
+
+            <include layout="@layout/shimmer_holder" />
+
+            <include layout="@layout/shimmer_holder" />
+
+            <include layout="@layout/shimmer_holder" />
+
+            <include layout="@layout/shimmer_holder" />
+
+            <include layout="@layout/shimmer_holder" />
+
+            <include layout="@layout/shimmer_holder" />
+
+            <include layout="@layout/shimmer_holder" />
+
+            <include layout="@layout/shimmer_holder" />
+
+            <include layout="@layout/shimmer_holder" />
+
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:id="@+id/frame"
+        android:visibility="visible">
+
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/recycleListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        >
+    <Button
+        android:id="@+id/muOrders"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_border"
+        android:text="@string/My_orders"
+        android:textColor="@color/colorToolBar"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="25dp">
+    </Button>
+
+    <Button
+        android:id="@+id/logOut"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_border"
+        android:backgroundTint="@color/colorToolBar"
+        android:text="@string/Log_out"
+        android:textColor="@color/White"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="200dp"
+        tools:ignore="UnusedAttribute">
+    </Button>
+    </FrameLayout>
+</LinearLayout>
