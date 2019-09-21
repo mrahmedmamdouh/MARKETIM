@@ -17,7 +17,11 @@
             tools:ignore="InnerclassSeparator">
         </activity>
 
-        <activity android:name=".View.LoginActivity.Login">
+        <activity android:name=".View.LoginActivity.Login"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            tools:ignore="InnerclassSeparator">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

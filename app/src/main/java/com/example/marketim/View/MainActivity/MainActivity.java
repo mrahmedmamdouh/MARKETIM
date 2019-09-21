@@ -1,5 +1,7 @@
 package com.example.marketim.View.MainActivity;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -32,7 +37,7 @@ import static com.example.marketim.View.LoginActivity.Login.SHARED;
 
 public class MainActivity extends AppCompatActivity implements IMainActivity {
 
-    private List<Market> mdata = new ArrayList<>();
+    private ArrayList<? extends Market> mdata = new ArrayList<>();
     private List<ProductDetail> mdata2 = new ArrayList<>();
     private RecyclerView recycleView;
     private ItemAdapter adapter;
@@ -47,7 +52,10 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        if ((savedInstanceState != null)
+                && (savedInstanceState.getParcelableArrayList("Market") != null)&& (savedInstanceState.getParcelableArrayList("Ürün") != null)) {
+            mdata =  savedInstanceState.getParcelableArrayList("Market");
+            mdata2 =  savedInstanceState.getParcelableArrayList("Ürün");}
         Init();
         OnClick();
     }
@@ -93,6 +101,14 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
     }
 
     private void Init() {
+        switch (getResources().getConfiguration().orientation) {
+            case Configuration.ORIENTATION_PORTRAIT:
+                setContentView(R.layout.activity_main);
+                break;
+            case Configuration.ORIENTATION_LANDSCAPE:
+                setContentView(R.layout.activity_main1);
+                break;
+        }
         Objects.requireNonNull(this.getSupportActionBar()).setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
         getSupportActionBar().setCustomView(R.layout.custom_toolbar);
@@ -119,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
     @Override
     public void onSuccess(List<Market> markets, List<ProductDetail> productDetails) {
 
-        mdata = markets;
+        mdata = (ArrayList<? extends Market>) markets;
         mdata2 = productDetails;
         adapter = new ItemAdapter(mdata,mdata2);
         shimmerFrameLayout.stopShimmerAnimation();
@@ -136,5 +152,21 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
     @Override
     public void onBackPressed() {
         return;
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mdata =  savedInstanceState.getParcelableArrayList("Market");
+        mdata2 =  savedInstanceState.getParcelableArrayList("Ürün");
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList("Market",  mdata);
+        outState.putParcelableArrayList("Ürün", (ArrayList<? extends Parcelable>) mdata2);
+
     }
 }

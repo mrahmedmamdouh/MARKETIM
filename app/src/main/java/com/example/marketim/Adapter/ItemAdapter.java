@@ -19,6 +19,7 @@ import com.example.marketim.R;
 import org.jetbrains.annotations.NotNull;
 
 import java.text.DateFormatSymbols;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -26,12 +27,12 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.MovieViewHolder> {
-    private  List<Market> markets;
+    private ArrayList<? extends Market> markets;
     private  List<ProductDetail> detail;
     private int mExpandedPosition = -1;
 
     //Oluşturucu Yarat
-    public ItemAdapter(List<Market> markets,List<ProductDetail> detail) {
+    public ItemAdapter(ArrayList<? extends Market> markets, List<ProductDetail> detail) {
         this.markets = markets;
         this.detail = detail;
     }

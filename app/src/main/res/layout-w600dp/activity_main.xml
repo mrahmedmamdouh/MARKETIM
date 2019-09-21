@@ -45,46 +45,46 @@
     </com.facebook.shimmer.ShimmerFrameLayout>
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="450dp"
         android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="309dp"
         android:visibility="visible">
 
-            <androidx.recyclerview.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
 
-                android:id="@+id/recycleListView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            android:id="@+id/recycleListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </FrameLayout>
+
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-
-        >
-    <Button
-        android:id="@+id/muOrders"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/layout_border"
-        android:text="@string/My_orders"
-        android:textColor="@color/colorToolBar"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="25dp">
-    </Button>
-
-    <Button
-        android:id="@+id/logOut"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/layout_border"
-        android:backgroundTint="@color/colorToolBar"
-        android:text="@string/Log_out"
-        android:textColor="@color/White"
-        android:layout_marginTop="15dp"
         android:layout_marginStart="200dp"
-        tools:ignore="UnusedAttribute">
-    </Button>
+
+        android:layout_marginTop="25dp">
+
+        <Button
+            android:id="@+id/muOrders"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/layout_border"
+            android:text="@string/My_orders"
+            android:textColor="@color/colorToolBar"></Button>
+
+        <Button
+            android:id="@+id/logOut"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/layout_border"
+            android:backgroundTint="@color/colorToolBar"
+            android:text="@string/Log_out"
+            android:textColor="@color/White"
+            tools:ignore="UnusedAttribute"></Button>
     </FrameLayout>
 </LinearLayout>

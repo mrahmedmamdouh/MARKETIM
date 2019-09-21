@@ -1,11 +1,14 @@
 package com.example.marketim.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Market {
+public class Market implements Parcelable {
 
     @SerializedName("date")
     @Expose
@@ -103,4 +106,39 @@ public class Market {
         ProductState = productState;
         ProductDetail = productDetail;
     }
+
+    private Market(Parcel in) {
+        Date = in.readString();
+        Month = in.readString();
+        MarketName = in.readString();
+        OrderName = in.readString();
+        ProductPrice = in.readDouble();
+        ProductState = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(Date);
+        parcel.writeString(Month);
+        parcel.writeString(MarketName);
+        parcel.writeString(OrderName);
+        parcel.writeString(ProductState);
+        parcel.writeDouble(ProductPrice);
+
+    }
+    public static final Parcelable.Creator<Market> CREATOR = new Parcelable.Creator<Market>() {
+        public Market createFromParcel(Parcel in) {
+            return new Market(in);
+        }
+
+        public Market[] newArray(int size) {
+            return new Market[size];
+        }
+    };
+
 }
