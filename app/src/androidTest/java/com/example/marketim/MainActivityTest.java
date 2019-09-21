@@ -7,9 +7,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.test.espresso.ViewAction;
-import androidx.test.espresso.assertion.ViewAssertions;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.runner.AndroidJUnit4;
 import static androidx.test.espresso.Espresso.onData;

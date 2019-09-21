@@ -10,9 +10,8 @@ import com.example.marketim.View.MainActivity.IMainActivity;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import retrofit2.Call;
@@ -23,9 +22,8 @@ public class MainPresenter implements IMainPresenter {
 
     private  IMainActivity iMainActivity;
     private ILogin iLogin;
-    private Market market ;
     private List<Market> marketItems = new ArrayList<>();
-    private List<ProductDetail> productDetails = new ArrayList<>();
+    private final List<ProductDetail> productDetails = new ArrayList<>();
 
 
     //Oluşturucu Yarat
@@ -49,7 +47,7 @@ public class MainPresenter implements IMainPresenter {
                     public void onResponse(@NonNull Call<List<Market>> call, @NonNull Response<List<Market>> response) {
                         if (response.isSuccessful()) {
                             marketItems = response.body();
-                            for (int i =0; i<marketItems.size();i++){
+                            for (int i = 0; i< Objects.requireNonNull(marketItems).size(); i++){
                                 productDetails.add(marketItems.get(i).getProductDetail());
                             }
                             // Görünüme veri gönder

@@ -25,7 +25,8 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/order_name"
             app:layout_constraintStart_toStartOf="@+id/order_name"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/price"
@@ -43,7 +44,7 @@
             app:layout_constraintStart_toEndOf="@+id/order_name"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.84000003"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="HardcodedText,MissingConstraints" />
 
         <TextView
             android:id="@+id/days"
@@ -59,7 +60,8 @@
             app:layout_constraintBottom_toTopOf="@+id/month"
             app:layout_constraintEnd_toStartOf="@+id/view2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/order_name"
@@ -76,7 +78,7 @@
             app:layout_constraintEnd_toEndOf="@+id/product_state"
             app:layout_constraintStart_toStartOf="@+id/view2"
             app:layout_constraintTop_toBottomOf="@+id/market_name"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="HardcodedText,MissingConstraints" />
 
         <TextView
             android:id="@+id/product_state"
@@ -89,7 +91,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/order_name"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="HardcodedText,MissingConstraints" />
 
         <TextView
             android:id="@+id/month"
@@ -102,7 +104,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/view2"
             app:layout_constraintEnd_toStartOf="@+id/view2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
         <View
             android:id="@+id/view2"
@@ -137,7 +140,8 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="5dp"
             android:text="TextView"
-            android:textSize="13dp" />
+            android:textSize="13sp"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/price_summary"
@@ -146,8 +150,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:text="TextView"
-            android:textSize="13dp"
-            android:textStyle="bold" />
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
 
         <View
             android:layout_width="fill_parent"

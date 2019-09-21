@@ -20,27 +20,17 @@ public class ProductDetail implements Parcelable{
         return OrderDetail;
     }
 
-    public void setOrderDetail(String orderDetail) {
-        OrderDetail = orderDetail;
-    }
-
     public double getSummaryPrice() {
         return SummaryPrice;
     }
 
-    public void setSummaryPrice(double summaryPrice) {
-        SummaryPrice = summaryPrice;
-    }
-
-    public ProductDetail(Parcel in) {
+    private ProductDetail() {
     }
 
     public ProductDetail(String orderDetail, double summaryPrice) {
         OrderDetail = orderDetail;
         SummaryPrice = summaryPrice;
     }
-
-
 
     @Override
     public int describeContents() {
@@ -55,7 +45,7 @@ public class ProductDetail implements Parcelable{
     }
     public static final Parcelable.Creator<ProductDetail> CREATOR = new Parcelable.Creator<ProductDetail>() {
         public ProductDetail createFromParcel(Parcel in) {
-            return new ProductDetail(in);
+            return new ProductDetail();
         }
 
         public ProductDetail[] newArray(int size) {

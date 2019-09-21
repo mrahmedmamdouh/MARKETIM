@@ -3,13 +3,10 @@ package com.example.marketim.Adapter;
 import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Build;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.marketim.Model.Market;
@@ -27,8 +24,8 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.MovieViewHolder> {
-    private ArrayList<? extends Market> markets;
-    private  List<ProductDetail> detail;
+    private final ArrayList<? extends Market> markets;
+    private final List<ProductDetail> detail;
     private int mExpandedPosition = -1;
 
     //Oluşturucu Yarat
@@ -69,8 +66,15 @@ public class ItemAdapter  extends RecyclerView.Adapter<ItemAdapter.MovieViewHold
     }
 
     class MovieViewHolder extends RecyclerView.ViewHolder {
-         TextView Date,Month,MarketName,OrderName,ProductPrice,ProductState,Summary,PriceSummary;
-         LinearLayout Details;
+         final TextView Date;
+        final TextView Month;
+        final TextView MarketName;
+        final TextView OrderName;
+        final TextView ProductPrice;
+        final TextView ProductState;
+        final TextView Summary;
+        final TextView PriceSummary;
+         final LinearLayout Details;
 
         MovieViewHolder(View itemView) {
             super(itemView);

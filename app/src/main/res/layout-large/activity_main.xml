@@ -73,7 +73,7 @@
             android:layout_marginTop="15dp"
             android:background="@drawable/layout_border"
             android:text="@string/My_orders"
-            android:textColor="@color/colorToolBar"></Button>
+            android:textColor="@color/colorToolBar" />
 
         <Button
             android:id="@+id/logOut"
@@ -85,6 +85,6 @@
             android:backgroundTint="@color/colorToolBar"
             android:text="@string/Log_out"
             android:textColor="@color/White"
-            tools:ignore="UnusedAttribute"></Button>
+            tools:ignore="UnusedAttribute" />
     </FrameLayout>
 </LinearLayout>

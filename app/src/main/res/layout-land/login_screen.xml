@@ -25,7 +25,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
         tools:ignore="MissingConstraints"
-        tools:text="@string/SignIn" />
+        tools:text="@string/SignIn"
+        tools:targetApi="lollipop" />
 
     <Switch
         android:id="@+id/KeepMeSigned"

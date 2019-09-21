@@ -1,7 +1,6 @@
 package com.example.marketim.View.MainActivity;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +14,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -40,15 +38,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
     private ArrayList<? extends Market> mdata = new ArrayList<>();
     private List<ProductDetail> mdata2 = new ArrayList<>();
     private RecyclerView recycleView;
-    private ItemAdapter adapter;
     private MainPresenter presenter;
     private FrameLayout fr;
     private ShimmerFrameLayout shimmerFrameLayout;
-    private LinearLayoutManager mLayoutManager;
     private Button LogOut,MyOrders;
     private AlertDialog.Builder alert;
-    SharedPreferences ref;
-    SharedPreferences.Editor editor;
+    private SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
                 });
                 alert.setNegativeButton(getString(R.string.no_str) ,new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        return;
                     }
                 });
                 alert.show();
@@ -114,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
         getSupportActionBar().setCustomView(R.layout.custom_toolbar);
          alert = new AlertDialog.Builder(this);
         presenter = new MainPresenter(this);
-        ref = getSharedPreferences(SHARED, MODE_PRIVATE);
+        SharedPreferences ref = getSharedPreferences(SHARED, MODE_PRIVATE);
         editor = ref.edit();
         shimmerFrameLayout = findViewById(R.id.shimmer_view);
         fr = findViewById(R.id.frame);
@@ -124,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
         shimmerFrameLayout.startShimmerAnimation();
         fr.setVisibility(View.GONE);
         recycleView = findViewById(R.id.recycleListView);
-        mLayoutManager = new LinearLayoutManager(this);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         recycleView.setLayoutManager(mLayoutManager);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recycleView.getContext(), new LinearLayoutManager(this).getOrientation());
         recycleView.addItemDecoration(dividerItemDecoration);
@@ -137,7 +131,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
 
         mdata = (ArrayList<? extends Market>) markets;
         mdata2 = productDetails;
-        adapter = new ItemAdapter(mdata,mdata2);
+        ItemAdapter adapter = new ItemAdapter(mdata, mdata2);
         shimmerFrameLayout.stopShimmerAnimation();
         shimmerFrameLayout.setVisibility(View.GONE);
         fr.setVisibility(View.VISIBLE);
@@ -151,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements IMainActivity {
 
     @Override
     public void onBackPressed() {
-        return;
     }
 
     @Override
